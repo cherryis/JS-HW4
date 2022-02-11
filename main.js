@@ -9,7 +9,7 @@ let MovieObject = function (pTitle, pYear, pGenre) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", function (event) {   //standard JS function, Not Jquery
 
     document.getElementById("buttonAdd").addEventListener("click", function () {
 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         console.log(movieArray);
         document.getElementById("movie").value = ""; //Clear current input screen
         document.getElementById("year").value = "";
-});
+    });
 
     $(document).bind("change", "#select-genre", function (event, ui) {
         selectedGenre = document.getElementById("select-genre").value;
@@ -28,39 +28,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
     $(document).on("pagebeforeshow", "#list", function (event) {   
         createList();
     });
-    
 
 });
 
 function createList() {
     
-    // clear prior data
-    let myul = document.getElementById("myList");
-    myul.innerHTML = '';
+    // // clear prior data
+    // let myul = document.getElementById("myList");
+    // myul.innerHTML = '';
+
+    // movieArray.forEach(function (element,) {   // use handy array forEach method
+    //     let li = document.createElement('li');
+    //     li.innerHTML = "Title: " + element.title + " Year: " + element.year + " Genre: " + element.genre;
+    //     myul.appendChild(li);
+    // });
+
+   
+    // Adding a row inside the tbody.
+    let mytbody = $("tbody");
 
     movieArray.forEach(function (element,) {   // use handy array forEach method
-        let li = document.createElement('li');
-        li.innerHTML = "Title: " + element.title + " Year: " + element.year + " Genre: " + element.genre;
-        myul.appendChild(li);
+        let tr = "<tr><td width='250'>" + element.title + "</td><td width='150'>" + element.year + 
+            "</td><td width='200'>" + element.genre + "</td></tr>";
+        mytbody.append(tr);
     });
-//     let myContainer = document.getElementById("container");
-//     let myTable = document.createElement("table");
-//     let myRow = myTable.insertRow(0);
-//     let myData = myRow.innerHTML = `<tr>
-//     <th>Movie Title </th>
-//     <th>Released Year </th>
-//     <th>Rating </th>
-// </tr>`;
 
-//     movieArray.forEach(function (element,) {   // use handy array forEach method
-//         myRow = myTable.insertRow(-1);
-//         myData = myRow.insertCell(0).innerHTML = movieArray[element].title;
-//         myData = myRow.insertCell(1).innerHTML = movieArray[element].year;
-//         myData = myRow.insertCell(2).innerHTML = movieArray[element].genre;
-
-//         myContainer.innerHTML = "";
-//         myContainer.appendChild(myTable);
-//         console.log(movieArray);
-//     });
-};
-
+    // .append($('<tr>')
+    //     .append($('<td>')
+    //         .append($('<img>')
+    //             .attr('src', 'img.png')
+    //             .text('Image cell')
+    //         )
+    //     )
+    // );
+}

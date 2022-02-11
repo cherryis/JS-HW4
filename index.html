@@ -7,8 +7,12 @@ Using Constructor and Object -->
     <meta charset="utf-8">
     <title>Movies</title>
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+
     <script src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="site.css">
 
@@ -105,10 +109,21 @@ Using Constructor and Object -->
 
 
     <!-- content -->
-    <div data-role="content" data-theme='e'> 
-        <ul id="myList"></ul>
-        <!-- <div id="container"></div> -->
-    </div>
+    <!-- <div data-role="content" data-theme='e'>  -->
+        <!-- <ul id="myList"></ul> -->
+        <table id="myList">
+            <thead>
+                <tr>
+                    <th width="250">Title</th>
+                    <th width="150">Year</th>
+                    <th width="200">Genre</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    <!-- </div> -->
 
 
         <!-- Movies footer -->
